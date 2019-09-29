@@ -43,6 +43,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+	path('manual/', views.ManualView.as_view()),
+	path('generic/', views.GenericView.as_view()),
     path('rest-swagger/', get_swagger_view(title='Users API')),
     re_path(r'^drf-yasg-swagger(?P<format>\.json|\.yaml)$', drf_schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('drf-yasg-swagger/', drf_schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

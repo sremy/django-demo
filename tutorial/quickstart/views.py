@@ -43,3 +43,12 @@ class GenericView(generics.GenericAPIView):
     def post(self, request: Request, format=None):
         #name = request.POST.get('name')
         return Response({'key': 'POST'})
+
+
+class ReportView(APIView):
+    def get(self, request: Request, format=None):
+        print("request: " + str(request._request))
+        print("request path: " + str(request._request.path))
+        print("request.query_params: " + str(dir(request.query_params)))
+        return Response({"query": str(request._request) , "path": request._request.path, "params": str(request.query_params), "data": request._data})
+

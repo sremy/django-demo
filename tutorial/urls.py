@@ -49,4 +49,5 @@ urlpatterns = [
     re_path(r'^drf-yasg-swagger(?P<format>\.json|\.yaml)$', drf_schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('drf-yasg-swagger/', drf_schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('drf-yasg-redoc/', drf_schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+	re_path('report/.*', views.ReportView.as_view()),
 ]
